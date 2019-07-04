@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="jumbotron">
+
+    <form class="form form-horizontal" id="regForm" [formGroup]="regInfo" novalidate (ngSubmit)="regInfoSub()">
+      <div class="form-body">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="Name">
+              <strong>Name </strong>
+              <span class="hint-message"> &nbsp;(Minimum 10 characters are required)</span>
+            </label>
+
+            <div style="margin-left: 92%;font-size: smaller;">({{titlelength}} / 200)</div>
+            <input type="text" class="form-control" placeholder="Enter name of the user" name="uName"
+              formControlName="uName" minlength="10" maxlength="200" (keyup)="checkTitle($event)">
+          </div>
+        </div>
+        <div class="row  mt-2">
+          <div class="col-md-12">
+            <label for="Email">
+              <strong>Email </strong>
+            </label>
+            <input type="text" class="form-control" placeholder="Enter your email" name="email" formControlName="email">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <label for="Password">
+              <strong>Password</strong>
+              <span class="hint-message"> &nbsp;(Minimum 8 characters are required)</span>
+            </label>
+
+            <!-- <div style="margin-left: 92%;font-size: smaller;">({{titlelength}} / 200)</div> -->
+            <input type="password" class="form-control" placeholder="Enter your Password" name="pwd"
+              formControlName="pwd" minlength="6">
+          </div>
+        </div>
+        <!-- <div class="row  mt-2">
+          <div class="col-md-12">
+            <label for="URL">
+              <strong> URL </strong>
+            </label>
+            <input type="URL" class="form-control" placeholder="Enter your profile URL" name="URL"
+              formControlName="pUrl">
+          </div>
+        </div> -->
+        <div class="row  mt-2">
+          <div class="col-md-12">
+            <label for="Phone Number">
+              <strong> Phone Number </strong>
+            </label>
+
+            <input type="text" class="form-control" placeholder="Enter name of the user" name="pNumber"
+              formControlName="pNumber" minlength="10">
+          </div>
+        </div>
+
+        <div class="row mt-2">
+
+          <div class="col-md-12">
+            <label for="gender">
+              <strong>Gender </strong>
+            </label>
+            <select id="gender" name="gender" class="form-control" placeholder="Select your gender"
+              formControlName="gender">
+              <option value=''>Gender</option>
+              <option value="Male"> Male </option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row  mt-2">
+          <div class="col-md-12">
+            <label for="Comments">
+              <strong> Comments </strong>
+              <span class="hint-message"> &nbsp;(Minimum 10 characters are required)</span>
+            </label>
+
+            <div style="margin-left: 92%;font-size: smaller;">({{titlelength1}} / 200)</div>
+            <textarea type="text" class="form-control" placeholder="Enter a comment" name="comment"
+              formControlName="comment" minlength="10" maxlength="1000" (keyup)="checkTitle1($event)"></textarea>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="person-icon">
+        <img [src]="profileImage" style="max-width: 100%; max-height: 
+         100%;">
+        <input (change)="onPersonEdit($event)" required accept=".jpg" 
+         type="file" style="opacity: 0.0; position: absolute; top:120px; 
+         left: 30px; bottom: 0; right:0; width: 200px; height:200px;" />
+      </div> -->
+
+      <!-- <input type="file" name="myImage" accept="image/*" /> -->
+      <div class="row  mt-2">
+          <div class="col-md-12">
+      <label for="Comments">
+          <strong> Profile  </strong>
+      
+        </label>
+      <input type="submit" value="Upload Photo" (change)="onPersonEdit($event)" required accept="images" type="file"
+       />
+       </div>
+      </div>
+
+      <div class="row  mt-2">
+        <div class="col-md-12">
+          <button type="submit" [disabled]="!regInfo.valid" class="btn btn-raised square btn-success "
+            style="margin-top: 3%;margin-left: 90%;"> Register&nbsp;<i class="fa fa-spinner fa-spin"
+              *ngIf="validForm1"></i>
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="col-md-6" style="margin-left: 25%">
+    <div class="jumbotron">
+      <form class="form form-horizontal " id="loginForm" [formGroup]="loginForm" novalidate (ngSubmit)="logininfo()">
+        <div class="form-body">
+          <div class="row  mt-2">
+            <div class="col-md-12">
+              <label for="Email">
+                <strong>Email </strong>
+              </label>
+              <input type="text" class="form-control" placeholder="Enter your email" name="email"
+                formControlName="email">
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-12">
+              <label for="Password">
+                <strong>Password</strong>
+                <span class="hint-message"> &nbsp;(Minimum 8 characters are required)</span>
+              </label>
+
+
+              <input type="password" class="form-control" placeholder="Enter your Password" name="pwd"
+                formControlName="pwd" minlength="8">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" name="button" style="display:inline-block; margin:15px;"
+            [disabled]="!loginForm.valid">Login</button>
+          <button type="button" class="btn btn-primary" name="button" style="display:inline-block;"
+            (click)="register()">Register</button>
+        </div>
+        <div class="alert alert-danger" *ngIf="loginsuccess" role="alert">
+          Please Check with the Login Credentials !!!
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+</div>
